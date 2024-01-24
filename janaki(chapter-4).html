@@ -1,0 +1,912 @@
+<html>
+    <head>
+        <title>Pages</title>
+        <link rel="stylesheet" href="chapter.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">   
+       <link rel="stylesheet" media="all and (max-width:480px)" href="chapter.css">
+       
+    </head>
+    <body>
+        <hr class="hr">
+        <h4 class="heading">Chapter 4. Customizing the NetView Management Console<br>
+            Topology Console
+            </h4>
+        <p class="a">This chapter describes basic customization of the NetView management console<br>
+            topology console and the advanced customization that can be performed to change<br>
+            the look, feel, and function.</p>
+            <hr class="hr1">
+        <h4 class="heading">Customizing Topology Console Functions</h4>
+        <p class="a">You can customize the NetView management console topology console by adding<br>
+or changing any of the following items:<br>
+v Topology console icons<br>
+v Topology console backgrounds<br>
+v Topology console help facility<br>
+v Web browser for displaying views<br>
+v Double-click mouse actions for real or aggregate resources<br>
+Customization is performed at the topology server so that it automatically deploys<br>
+to each topology console that subsequently signs on.</p>
+<h4 class="heading1">Adding and Customizing Topology Console Icons</h4>
+<p class="a">To add a new icon to the topology console, create an icon in one of the following<br>
+    graphical interchange formats (GIFs):<br>
+    <b class="i">32x32 pixels</b><br>
+    This size is required. The file must be named 32_xxxx.gif (using only<br>
+    lowercase letters).<br>
+    <b class="i">24x24 pixels</b><br>
+    This size is optional and is used for the medium view sizes. If this size is<br>
+    not provided, the 32_xxxx.gif version is automatically scaled. The file must<br>
+    be named 24_xxxx.gif (using only lowercase letters).<br>
+    <b class="i">16x16 pixels</b><br>
+    This size is optional and is used for the smaller view sizes. If this size is<br>
+    not provided, the 32_xxxx.gif version is automatically scaled. The file must<br>
+    be named 16_xxxx.gif (using only lowercase letters)</p>
+    <p class="a"> <b class="i">Note: </b>Animated GIFs are not supported.<br>
+        Place the GIF files in one of the following directories:<br>
+v For Windows systems: %BINDIR%\TDS\server\db\current\icons<br>
+v For AIX or Linux systems: $BINDIR/TDS/server/db/current/icons<br>
+You can also change existing icons in these directories using any tool that enables<br>
+GIF file manipulation. One example of a customized icon is the company icon. To<br>
+customize this icon, use the Console Properties notebook. For details, see the icon<br>
+customization procedures in the NetView management console online help.</p>
+<h4 class="heading1">Adding and Customizing Topology Console Backgrounds</h4>
+<p class="a">To add a new background image to the topology console, create an image file<br>
+    following these guidelines:<br>
+    v The name of the file must contain only lowercase letters.</p>
+<p class="a">v For a GIF image, use gif for the extension (or file type).<br>
+    v For a JPEG image, use jpg for the extension (or file type).<br>
+    v Use a size of 300x500 pixels.<br>
+    Store the image file in the appropriate topology server directory:<br>
+    v For Windows systems: %BINDIR%\TDS\server\db\current\backgrounds<br>
+    v For AIX or Linux systems: $BINDIR/TDS/server/db/current/backgrounds</p>
+<p class="a">You can also change the existing backgrounds in these directories using any tool<br>
+    that enables GIF or JPG manipulation.
+    </p>
+<p class="a">Customized backgrounds are associated with a view. See the NetView management<br>
+    console online help for specific steps on how to customize a view background.</p>
+<p class="a"><b class="i">Note:</b> Removing unused backgrounds reduces the install download time for the
+    topology console.
+    </p>
+    <h4 class="heading1">Customizing Your Online Help Facility</h4>
+<p class="a">As an alternative to using the built-in NetView management console help facility,<br>
+    you can specify your own web browser to display HTML help pages. Select the<br>
+    <b class="i">General </b>tab on the <b class="i">Console Properties </b>notebook. In the group box labeled<br>
+    <b class="i">Configure help facility,</b> select one of the following options:<br>
+    v Use the built-in help facility.<br>
+    v Use my default web browser.<br>
+    v Let me specify my own browser.
+    </p>
+<p class="a">To specify your own web browser, use lower case only, and specify the full drive<br>
+    and path name for the web browser executable file. Click  <b class="i">Browse </b>to navigate to<br>
+    the directory and locate the executable file. If you specify $URL anywhere in the<br>
+    specified path, the web address of the help is substituted for $URL automatically. If<br>
+    you do not specify a $URL, the web address of the help is appended to the end of<br>
+    the given command path. If you use a blank in your path name, enclose the entire<br>
+    command in quotation marks.</p>
+<p class="a">When online help is selected from the menu, the corresponding HTML help pages<br>
+    are sent to your browser. An HTML message is displayed in either case (if<br>
+    problems occur either in launching the web browser or after successfully launching<br>
+    the web browser).</p>
+<p class="a"><b class="i">Note:</b> If you request help at the <b class="i">Sign On </b>dialog box, the help is displayed in the<br>
+    NetView management console help facility, regardless of your choice of help<br>
+    facility in this Console Properties settings page. At the time you sign on, the values<br>
+    specified on the console settings page are not yet available.<br>
+    </p>
+    <h4 class="heading1">Configuring a Web Browser to Display Views</h4>
+    <h5 class="heading2">Designating a Console as a Web Server</h5>
+<p class="a">When you first install the NetView management console, the web server function<br>
+    is not enabled. Use the Web Server page in the Console Properties notebook to<br>
+    designate the console as a web server. Click the <b class="i">Help</b> button on the Web Server<br>
+    page for detailed descriptions of the page settings.</p>
+    <h5 class="heading2">Designating Multiple Consoles as Web Servers</h5>
+    <p class="a">You can designate multiple consoles on the same system as web servers, so that<br>
+        each console can set up its own set of views. Supply the data on the Web Server<br>
+        page in the Console Properties notebook to designate each console as a web server</p>
+    <p class="a">ensuring that you set the port number ranges so that each console on the same<br>
+        system can have a unique port number. Web servers on different systems can have<br>
+        the same port number.
+        </p>
+    <h5 class="heading2">Using the Web Browser</h5>
+    <p class="a">After designating the console system as a web server, enter the fully qualified host<br>
+        name or IP address of the console system as a web address in the web browser.<br>
+        You do not need to add prefixes (http, www, and so on), although you might need<br>
+        to fully qualify the host name. If the port number for the web server is not 80,<br>
+        follow the host name with a colon (:) and also the port number in the browser. The<br>
+        port number for the web server is displayed on the Web Server page of the<br>
+        Console Properties notebook. If the port number is 80, the web address looks like<br>
+        this:
+        </p>
+    <p class="a">Clientname</p><br>
+    <p class="a">If the port number is not 80, the web address looks like this:<br>
+        Clientname:Port number
+        </p>
+    <p class="a">You cannot see a view in the web browser until you add that view to the set of<br>
+        available views on the console. The view is displayed in the web browser after the<br>
+        next web browser refresh interval and the following information is displayed for<br>
+        the view:<br>
+        v The number of available views<br>
+        v The name of the current view<br>
+        v The time and date that the view was captured<br>
+        The refresh interval is also displayed.</p>
+    <p class="a">Web browser views are not dynamic: they are snapshots in time of a view that is<br>
+        opened on the console system. If the status of a view changes, the change is shown<br>
+        in the browser after the next browser refresh interval. As views are captured for<br>
+        the web server by the console system, they are added to a list of views. To capture<br>
+        the view, it must be visible on the console.</p>
+    <p class="a">If your console is configured to use the Cycle Views function, the views on the<br>
+        console are automatically displayed for a certain time interval, enabling the views<br>
+        to be captured for the web server automatically. To use the Cycle Views function to<br>
+        select the views and define the time interval to display them, from the Windows<br>
+        menu, select<b class="i">Cycle Views.</b></p>
+    <p class="a">Topology views in the web browser are the same size as the views captured on the<br>
+        console system. To change the size of a topology view in the web browser, resize<br>
+        the view on the console and click <b class="i">Add View to Web Server</b> or <b class="i">Update View</b> to<br>
+        <b class="i">Web Server</b> on the pop-up menu. The re-sized view is shown in the web browser<br>
+        at the next refresh, or you can manually reload the view in the web browser by<br>
+        clicking the <b class="i">Reload </b>button.</p>
+    <p class="a">A list of available views is provided in the browser window. Select a view, and<br>
+        click <b class="i">Open.</b> As additional views are added to the set of available views on the<br>
+        console, they are added to the view list. Both Topology and Details views can be<br>
+        displayed as they are displayed on the console. Icons in the Details view do not<br>
+        contain flags, background color, or an aggregate symbol.</p>
+    <p class="a">You can manually refresh a view by right-clicking the view background on the<br>
+        console. From the pop-up menu, select one of the following actions:<br>
+        <b class="i">v Add View to Web Server<br>
+            v Update View on Web Server
+            v Refresh Now </b>(if the view was added)
+    </p>
+  <p class="a"> The view is captured and sent to the browser. Click <b class="i">Reload</b> from the web browser<br>
+or wait for the next refresh interval to see the refreshed view. If you did not select<br>
+<b class="i">Make Views Available When They Are Opened</b> from the  <b class="i">Web Server</b> page, you<br>
+must manually add views to the web browser. To do this, right-click the view<br>
+background and select <b class="i">Add View To Web Server</b> from the pop-up menu. The view<br>
+is shown in the list of views available to the web browser at the next browser<br>
+refresh interval.</p>
+<h5 class="heading2">Logging Web Server Messages</h5>
+
+<p class="a">You can indicate on the Web Server page in the Console Properties notebook to<br>
+    create a record of each view that is opened on the web browser and send the<br>
+    record to the console log. Do this only if you need to closely track your views,<br>
+    since it creates a record every time a view is refreshed from the attached browsers.</p>
+     <h4 class="heading1">Customizing Double-click Mouse Actions
+    </h4>
+<p class="a">You can customize the double-right-click and double-left-click mouse actions for<br>
+    real or aggregate resources using the Console Properties notebook. Open the<br>
+    notebook by clicking <b class="i">Console Properties </b>on the Options menu item, and go to the<br>
+    Mouse page. For details about the page settings, click the <b class="i">Help</b> button on the<br>
+    Mouse page</p>
+<p class="a"><b class="i">Note: </b>When you use the console in demonstration mode, the customized mouse<br>
+    actions are not in effect.</p>
+    <hr class="hr1">
+    <h4 class="heading">Advanced Topology Console Customization</h4>
+    <p class="a">Several advanced customization tasks can be used for the topology console. Most<br>
+        of these tasks can be performed without using the topology console interface.
+        </p>
+    <h4 class="heading1">Displaying Customized Help</h4>
+    <p class="a">You can create context menu help that displays a Hypertext Markup Language<br>
+        (HTML) document at the topology console using the following instructions.<br>
+        1. Create your document file using basic HTML tags.<br>
+        <b class="i"> Note: </b>Use only lowercase characters in the file name and extension.<br>
+        2. Place the help file into the appropriate directory on the topology server<br>
+        workstation:<br>
+        v For Windows systems: <b class="i">%BINDIR%\TDS\server\db\current\help</b><br>
+        v For AIX or Linux systems:<b class="i"></b> $BINDIR/TDS/server/db/current/help</b><br>
+        <b class="i">Note:</b> You can also change existing help files which are located in these<br>
+        directories.<br>
+        3. Add the new context command to the topology server using the command<br>
+        profile editor batch utility. Create the command with the following values:<br>
+        Command string field: com.tivoli.ihs.client.action.IhsShowDocument<br>
+        <i>document_file_name</i><br>
+        Command exit field: <b class="i">IHSXTJAM</b></p>
+    <p class="a">Add the command to the default profile. For an example of a command profile<br>
+        editor batch utility response file, see sample ihsscp.xxx.rsp (where xxx is a<br>
+        country code indicator such as en_US) in the sample topology server directory.</p>
+    <h4 class="heading1">Enabling User Flags</h4>
+    <p class="a">Thirty-two flags are shipped with the NetView management console; eight of these<br>
+        can be customized. When they are shipped from the factory, the values for all of<br>
+        them are disabled. Therefore, if one of these flags is set for a resource, it does not<br>
+        display on any NetView management console user interface component. To display<br>
+        these flags, they must first be enabled. After a customized flag is enabled, it<br>
+        displays on the appropriate NetView management console user interface<br>
+        component (such as, in the Resource Properties window, or the Filter Bar).</p>
+    <p class="a">To enable any of the flags that can be customized, update the default operational<br>
+        scheme by performing the following steps from the server workstation:<br>
+        1. Make a backup copy of the NetView management console default operational<br>
+        scheme files with one of the following methods:<br>
+        &nbsp;&nbsp;v Use a packaging tool such as PKZip, WinZip, or tar.<br>
+        &nbsp;&nbsp; v Create a backup directory and copy the default scheme files to it.<br>
+        2. Determine the hexadecimal value of the specific user flag that you want to<br>
+        enable by using the following steps:<br>
+        &nbsp;&nbsp; a. Open the defaultscheme.properties file in a text editor.<br>
+        &nbsp;&nbsp;b. Search for the string f1 to locate the section of the file where the flags are<br>
+        defined.<br>
+        &nbsp;&nbsp; c. Scroll down until you find the comment for the flag you want to enable.<br>
+        For example:<br>
+        &nbsp;&nbsp; &nbsp;&nbsp; * User 1<br>
+        &nbsp;&nbsp; &nbsp;&nbsp; f25.value =0x00000080<br>
+        The corresponding value of the attribute is the hexadecimal value for the<br>
+        flag. In this example, 0x00000080 is the User 1 flag value.<br>
+        3. In the defaultscheme.properties file, search for the string FLAG values to locate<br>
+        the section of the file where the flags are defined. The flags are defined in<br>
+        descending order.<br>
+        4. Scroll down until you see the value for the user flag that you want to enable.<br>
+        5. To enable this flag, change the value of the defDefine attribute from false to<br>
+        true.<br>
+        Depending on how you want this flag to work, you might need to define<br>
+        additional attributes. All flag attributes are documented by the<br>
+        com.tivoli.ihs.client.view.IhsUserStatus class as shown in the following<br>
+        example.<br>
+        &nbsp;&nbsp; #&nbsp;&nbsp; "Flag" Definition Values:<br>
+        &nbsp;&nbsp; #
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; fX.tag &nbsp;&nbsp;&nbsp;&nbsp;Reference tag (required).<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.defDefine &nbsp;&nbsp;&nbsp;&nbsp;Is this item defined? (optional, true).<br>
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set to false to disable this item.<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.isDefault &nbsp;&nbsp;&nbsp;&nbsp;Does this item contain default values for all other items?<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional, false).<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.weight Orders an item relative to other items by "weight"<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional, 100).<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.value  &nbsp;&nbsp;&nbsp;&nbsp;Status value (required, only 1 bit can be on).<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.defFilter  &nbsp;&nbsp;&nbsp;&nbsp;Currently not used.<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.defDisplay  &nbsp;&nbsp;&nbsp;&nbsp;Currently not used.<br>
+        &nbsp;&nbsp;#<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.onView  &nbsp;&nbsp;&nbsp;&nbsp;Display sub-icon on topology view? (optional, false)<br>
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; fX.color  &nbsp;&nbsp;&nbsp;&nbsp;Color of sub-icon on topology view. Flag with highest<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weight is used. (optional, gray)<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.reqAdmin  &nbsp;&nbsp;&nbsp;&nbsp;Administrator required to set/clear (optional, false).<br>
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; fX.canSet  &nbsp;&nbsp;&nbsp;&nbsp;Is this flag allowed to be set (turned on)? (optional,<br>
+        &nbsp;&nbsp; # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true)<br>
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; fX.canClear  &nbsp;&nbsp;&nbsp;&nbsp;Is this flag allowed to be cleared (turned off)? (optional,<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true)<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.forAgg &nbsp;&nbsp;&nbsp;&nbsp; Applicable for an aggregate resource? (optional, false)<br>
+        &nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;fX.forReal  &nbsp;&nbsp;&nbsp;&nbsp;Applicable for a real resource? (optional, true)<br>
+        &nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp; fX.relatedTo &nbsp;&nbsp;&nbsp;&nbsp; Mask of "related" flags (optional, none).<br>
+        &nbsp;&nbsp;#<br>
+        </p>
+        <p class="a">&nbsp;&nbsp;&nbsp;&nbsp;For more information about self-documenting data classes for the NetView<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; management console topology console, see “Running a Console Class” on<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;page 27</p>
+        <p class="a">6. Save your changes.<br>
+            7. To define the wording for this user flag, open the defaultschemetext.properties<br>
+            file in a text editor.<br>
+            8. Search for the f.xxxxxxx string where xxxxxxx is the hexadecimal value of the<br>
+            specific user flag you are enabling.<br>
+            9. Change the value of the f.xxxxxxx.label attribute to include all text for this<br>
+            flag.<br>
+            10. Change the value of the f.xxxxxxx.abbrev attribute to the abbreviation you<br>
+            are assigning to this flag.<br>
+            11. Save the changes.</p>
+        <p class="a">To verify that the flag you have enabled exists, perform the following steps:<br>
+            1. Start an NetView management console topology console.<br>
+            2. Open a view.<br>
+            3. Select a resource and right-click to display the context menu.<br>
+            4. Click Resource Properties.<br>
+            5. Verify that the user flag is present on the Resource window.<br>
+            6. Open the Console Properties notebook, select the Status page, and verify that<br>
+            the flag is present.</p>
+        <p class="a">The example in Table 8 shows the changes that enable the User 1 flag and name it<br>
+            Retired.</p>
+        <p class="a"><i>Table 8. Changing the User 1 Flag to Retired<br></i></p>
+        <center>
+        <table class="tab"  border="6" cellpadding="6" cellspacing="6">
+            <tr><th>File</th><th>Before</th><th>After</th></tr>
+            <tr><td>defaultscheme.properties</td><td>* User 1<br>
+                f25.value =0x00000080<br>
+                f25.weight =2000<br>
+                f25.defDefine =false</td><td>* User 1<br>f25.value = 0x00000080<br>
+                    f25.weight = 2000<br>
+                    f25.defDefine = true</td></tr>
+          
+            <tr><td>defaultschemetext.properties</td><td>f.00000080.label = User 1<br>f.00000080.abbrev = User1</td><td>f.00000080.label = Retired<br>f.00000080.abbrev =Retd</td></tr>
+        </table></center>
+        <h4 class="heading1">Adding a Flag to the Context Menu
+        </h4>
+        <p class="a">The following flags can be directly manipulated from resource specific context<br>
+            menus:<br>
+            v Suspend, Manually Clear<br>
+            v Suspend, Automatically Clear<br>
+            v Clear Suspended<br>
+            v Clear Child Suspended</p>
+        <p class="a">You can enable context menu items for additional flags. From the server<br>
+            workstation, add a new flag context menu item to the NetView management<br>
+            console default operational scheme. The properties files, in which the NetView<br>
+            management console operational scheme is defined, are described briefly in<br>
+            Table 9.
+            </p>
+        <p class="a"><i>Table 9. NetView Management Console Properties Files</i></p>
+        <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+            <tr><th>Scheme File Name</th><th>Description</th></tr>
+            <tr><td>defaultscheme.properties</td><td>Provides most of the operational definitions (except<br>
+                required multicultural support enabled text).<br>
+                1. COLOR Definitions (Not currently used)<br>
+                2. FLAG Definitions<br>
+                3. FLAG (User status) menu items<br>
+                4. STATUS SCHEME values<br>
+                5. STATUS values<br>
+                6. STATUS MAPPING values (Not currently used)<br>
+                7. MODE values (NetView management console<br>
+                only supports Control mode)<br>
+                8. LAYER values<br>
+                9. Miscellaneous Control Values</td></tr>
+            <tr><td>defaultschemetext.properties</td><td>Provides the English language set of multicultural<br>
+                support enabled text that is required by the<br>
+                defaultscheme.properties file.<i> (Status text and<br>
+                colors not currently used.)</i></td></tr>
+            <tr><td>defaultschemetext_ja.properties</td><td>Provides the Japanese language set of multicultural<br>
+                support enabled text that is required by<br>
+                defaultscheme.properties file. <i>(Colors not currently<br>
+                used.)</i>
+                </td></tr>
+
+        </table></center>
+        <p class="a">The disk location of the scheme properties files is determined by the NetView<br>
+            management console operational mode (as shown in Table 10).</p>
+        <p class="a"><i>Table 10. Location of Scheme Files</i></p>
+        <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+            <tr><th>NetView Management<br>
+                Console Operational<br>
+                Mode
+                </th><th>Location of Scheme Files</th></tr>
+            <tr><td>Signed on to a server</td><td><installRoot>\bin\<interp>\TDS\Server\db\current\settings</td></tr>
+            <tr><td>Demonstration</td><td><installRoot>\bin\generic_unix\TDS\client\settings</td></tr>
+        </table></center>
+        <p class="a">To add a new flag context menu item to the NetView management console default<br>
+            operational scheme, perform the following steps:<br>
+            &nbsp;&nbsp;1.  &nbsp;&nbsp;Make a backup copy of the NetView management console default operational<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;scheme with one of the following methods:<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;v Use a packaging tool such as PKZip, WinZip, or tar.<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;v Create a backup directory and copy the default scheme files to it.<br>
+            &nbsp;&nbsp;2.  &nbsp;&nbsp;Determine the hexadecimal value of the specific user flag that you want to<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;enable by performing the following steps.<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;a. Open the defaultscheme.properties file in a text editor.<br>
+            &nbsp;&nbsp; &nbsp;&nbsp; b. Search for the string f1 to locate the section of the file where the flags are<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;defined.<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;c. Scroll down until you find the comment for the flag.<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;For example:<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;* Marked<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;f1.value =0x80000000<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;The corresponding value for the attribute is the hexadecimal value for the<br>
+ &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;flag. In this example, 0x80000000 is the Marked flag value.<br>
+ &nbsp;&nbsp;3.&nbsp;&nbsp; In the defaultscheme.properties file, search for the string User status menu<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;items to locate the section of the file where the context menu items for the<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;flag are defined.<br>
+&nbsp;&nbsp;4. The menu items are defined in the order they are displayed in a context<br>
+&nbsp;&nbsp;5.&nbsp;&nbsp;menu, so scroll to the end of the list of menu items.<br>
+&nbsp;&nbsp;5.&nbsp;&nbsp; Create a new set of menu item attributes with a menux prefix (where x is the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;next sequence number). For example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;menux.tag = <unique identifier for this menu item><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;menux.value = <hex value of the flag that you want to enable><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;menux.setTo = <true=set flag -or- false=Clear flag><br>
+    &nbsp;&nbsp;6.&nbsp;&nbsp; Depending on how you want this context menu item to work, you might also<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;have to define additional attributes.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;The com.tivoli.ihs.client.view.IhsFlagMenuScheme class documents all<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;menu item attributes, as shown in the following example.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;# "User Status Menu Item" Definition Values:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;#<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;# defaultscheme.properties:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.&nbsp;&nbsp;tag Reference tag (required).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.defDefine &nbsp;&nbsp;Is this item defined? (optional, true).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set to false to disable this item.<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.isDefault &nbsp;&nbsp;Does this item contain default values for all other<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items?<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional, false).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.&nbsp;&nbsp;weight Orders an item relative to other items by "weight"<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(optional, 100).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.&nbsp;&nbsp;value Associated flag value (required, only 1 bit can be on).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.&nbsp;&nbsp;setTo When selected, set flag on (true) or off (false)<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;required).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.set&nbsp;&nbsp;Rel If this flag is set, should a related flag also be set?<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optional, false).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See flag definitions relatedTo setting for the related<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag.<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.set&nbsp;&nbsp;RelTo If the related flag is to be set, set it on (true) or<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;off (false) (optional).<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# defaultschemetext.properties:<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.text &nbsp;&nbsp;Menu text (required)<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;# &nbsp;&nbsp;menuX.help &nbsp;&nbsp;Menu help file (required)<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;#<br></p>
+ <p class="a">&nbsp;&nbsp;For more information about self-documenting data classes for the NetView<br>
+    &nbsp;&nbsp;management console topology console, see “Running a Console Class” on<br>
+    &nbsp;&nbsp;page 27<br>
+    &nbsp;&nbsp; 7. Save the changes.<br>
+    &nbsp;&nbsp;8. Open the defaultschemetext.properties file in a text editor and search for<br>
+    &nbsp;&nbsp;&nbsp;the string User status menu items text to locate the section of the file where<br>
+    &nbsp;&nbsp;&nbsp;the flag menu items are defined.<br>
+    &nbsp;&nbsp;9. Scroll down to the end of the list of menu items which are currently defined.<br>
+    &nbsp;&nbsp;10. Create a new attribute with prefix that is the same as the menux value you<br>
+    &nbsp;&nbsp;&nbsp;used in the defaultscheme.properties file.<br>
+    &nbsp;&nbsp;&nbsp;For example:<br>
+    &nbsp;&nbsp;&nbsp;menux.text= <text displayed for this menu item><br>
+        &nbsp;&nbsp;11. Save the changes.</p>
+    <p class="a">&nbsp;&nbsp;To verify these changes, perform the following steps:<br>
+        &nbsp;&nbsp;1. Start an NetView management console topology console.<br>
+        &nbsp;&nbsp;2. Verify that the new context menu is displayed properly:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a. Open a view.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;b. Locate a resource for which your new menu item should be available.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;c. Right click on that resource and verify that your new menu item is present.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;d. Select the menu item and verify that the flag was updated.<br>
+        &nbsp;&nbsp;3. Verify that the definition of the default note was updated:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a. Open the Console Properties notebook and select the Notes® tab.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;b. Verify that the new menu item is present.</p>
+    <p class="a">&nbsp;&nbsp;For Resource Object Data Manager (RODM)-based resources, the NetView<br>
+        &nbsp;&nbsp;management console flags are the 4-byte UserStatus fields. For details, see the IBM<br>
+        &nbsp;&nbsp;Tivoli NetView for z/OS Data Model Reference.</p>
+    <p class="a">&nbsp;&nbsp;The example in Table 11 on page 26 shows the changes made to enable context<br>
+        &nbsp;&nbsp;menu items for <b class="i">Markedflag</b> in the defaultscheme.properties file.</p>
+    <p class="a"><i>Table 11. The Markedflag Item in the defaultscheme.properties File</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Before</th><th>After</th></tr>
+      <tr><td>**********************<br>
+        * User status menu items<br>
+        **********************<br>
+        menu1.setRelTo = false<br>
+        menu2.tag = SuspAut<br>
+        menu2.value = 0x40000000<br>
+        menu2.setTo = true<br>
+        menu2.setRel = true<br>
+        menu2.setRelTo = true<br>
+        menu3.tag = ClearSusp<br>
+        menu3.value = 0x40000000<br>
+        menu3.setTo = false<br>
+        menu3.setRel = true<br>
+        menu3.setRelTo = false<br>
+        menu4.tag = ClearChildSusp<br>
+        menu4.value = 0x00800000<br>
+        menu4.setTo = false<br></td><td>*********************<br>
+            * User status menu items<br>
+            *********************<br>
+            menu1.setRel = true<br>
+            menu1.setRelTo = false<br>
+            menu2.tag = SuspAut<br>
+            menu2.value = 0x40000000<br>
+            menu2.setTo = true<br>
+            menu2.setRel = true<br>
+            menu2.setRelTo = true<br>
+            menu3.tag = ClearSusp<br>
+            menu3.value = 0x40000000<br>
+            menu3.setTo = false<br>
+            menu3.setRel = true<br>
+            menu3.setRelTo = false<br>
+            menu4.tag = ClearChildSusp<br>
+            menu4.value = 0x00800000<br>
+            menu4.setTo = false<br>
+            menu5.tag = SetMarked<br>
+            menu5.value = 0x80000000<br>
+            menu5.setTo = true<br>
+            menu6.tag = ClearMarked<br>
+            menu6.value = 0x80000000<br>
+            menu6.setTo = false</td></tr>
+    </table></center>
+    <p class="a">The example in Table 12 on page 27 shows the changes that were made to enable<br>
+        context menu items for the <b class="i">Markedflag</b> in the defaultschemetext.properties file.</p>
+
+<p class="a"><i>Table 12. The Markedflag Item in the defaultschemetext.properties File</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>Before</th><th>After</th></tr>
+    <tr><td>*******************************<br>
+        * User status menu items text<br>
+        *******************************<br>
+        menu1.text = Suspend, Manually Clear<br>
+        menu1.help = ihs_mi_clermansusp_xxx.html<br>
+        menu2.text = Suspend, Automatically Clear<br>
+        menu2.help = ihs_mi_clerautosusp_xxx.html<br>
+        menu3.text = Clear Suspended<br>
+        menu3.help =<br>
+        ihs_mi_clersuspended_xxx.html<br>
+        menu4.text = Clear Child Suspended<br>
+        menu4.help = ihs_mi_clerchldsusp_xxx.htm</td><td>*********************************<br>
+            * User status menu items text<br>
+            *********************************<br>
+            menu1.text = Suspend, Manually Clear<br>
+            menu1.help = ihs_mi_clermansusp_xxx.html<br>
+            menu2.text = Suspend, Automatically Clear<br>
+            menu2.help = ihs_mi_clerautosusp_xxx.html<br>
+            menu3.text = Clear Suspended<br>
+            menu3.help =<br>
+            ihs_mi_clersuspended_xxx.html<br>
+            menu4.text = Clear Child Suspended<br>
+            menu4.help = ihs_mi_clerchldsusp_xxx.html<br>
+            menu5.text = Set Marked<br>
+            menu6.text = Clear Marked</td></tr>
+</table></center>
+<h4 class="heading1">Running a Console Class</h4>
+<p class="a">Many of the NetView management console topology console data classes are<br>
+    self-documenting. This means that if you run the data class, it tells you all of the<br>
+    attributes that you can define in a properties file to create an instance of the class.<br>
+    All of the NetView management console topology console classes are contained in<br>
+    the \bin\generic_unix\tds\client\lib\ihseuc.jar file. To obtain information for a<br>
+    specific data class, issue the following command from a console workstation:<br>
+    java -classpath %classpath%;<installRoot>\bin\generic_unix\tds\client\lib\ihseuc.jar<br>
+    <package qualified class name></p>
+<p class="a">This command generates all the attributes for a flag, for example:<br>
+    java -classpath %classpath%;<installRoot>\bin\generic_unix\tds\client\lib\ihseuc.jar<br>
+    com.tivoli.ihs.client.view.IhsUserStatus</p>
+           
+<h4 class="heading1">Customizing Web Server Enablement
+</h4>
+<p class="a">You can enable or disable the web server function (as a tab on the Console<br>
+    Properties notebook). Table 13 shows the values for enabling or disabling the web<br>
+    browser function; these values are set in the defaultscheme.properties file.</p>
+<p class="a"><i>Table 13. Enabling and Disabling the Web Server Function in the defaultscheme.properties<br>
+    File</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>defaultscheme.properties Attribute</th><th>Default Value</th><th>Other Valid Value</th></tr>
+    <tr><td>webServerPage.enable</td><td>true</td><td>false</td></tr>
+<tr><td></td></tr>
+</table></center>
+<p class="a">To customize the web server enablement, the NetView management console<br>
+    operational scheme must be updated, as shown in Table 13. To customize web<br>
+    server enablement, perform the following steps.</p>
+<p class="a">1. Make a backup copy of the default NetView management console operational<br>
+    scheme.<br>
+    2. Open the defaultscheme.properties file in a text editor.<br>
+    3. Search for the string webServerPage.<br>
+    4. Change the value on this line to false if you want to disable the Web Server<br>
+    function.<br>
+    5. Save the changes.<br>
+    To verify this change, perform the following steps:<br>
+    1. Start an NetView management console topology console<br>
+    2. Open the Console Properties notebook.<br>
+    3. Verify that the Web Server tab is no longer displayed on the Console Properties<br>
+    notebook page</p>
+<p class="a"><b class="i">Note:</b> Setting the attribute in the defaultscheme.properties file overrides the<br>
+    automatic start setting. For example, if you previously set the Web Server to<br>
+    automatically start and then set webServerPage.enable=false, then the Web Server<br>
+    does not automatically start.</p>
+<p class="a">For more information about the NetView management console operational scheme,<br>
+    see Table 9 on page 23.</p>
+<h4 class="heading1">Customizing the View Bar Layout</h4>
+<p class="a">You can adjust the number of rows or columns of view buttons displayed on the<br>
+    View Bar of the main NetView management console window. The minimum size of<br>
+    the view buttons can also be adjusted. Table 14 shows the attributes used to adjust<br>
+    these settings. These attributes are set in the defaultscheme.properties file.</p>
+<p class="a"><b class="i">Note:</b> Either the number of rows or the number of columns can be customized, but<br>
+    not both. The value for one of these settings must remain 0. The 0 value indicates<br>
+    that no maximum value exists for the attribute.</p>
+<p class="a"><i>Table 14. Changing View Bar Attributes and Values in the defaultscheme.properties File</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>Attribute</th><th>Description</th><th>Default<br>
+        Value</th><th>Minimum<br>
+            Value</th><th>Maximum<br>
+                Value</th></tr>
+    <tr><td>viewbar_max_rows = <int></td><td>Maximum number of<br>
+        rows in the view bar<br>
+        grid. New columns<br>
+        are added to display<br>
+        additional views.</td><td>0</td><td></td><td>None</td></tr>
+    <tr><td>viewbar_ max_columns =<br>
+        <int>
+        </td><td>Maximum number of<br>
+            columns in the view<br>
+            bar grid. New rows<br>
+            are added to display<br>
+            additional views.</td><td>0</td><td></td><td>None</td></tr>
+        <tr><td>viewbar_min_view_size =<br>
+            <int></td><td>Minimum size to<br>
+                make a view when<br>
+                sizing the views to fit<br>
+                on the view bar.</td><td>100</td><td>100</td><td></td></tr>
+</table></center>
+<p class="a">To change the view buttons on the View Bar, update the NetView management<br>
+    console operational scheme from the console or server workstation, depending on<br>
+    the mode in which you are running. See Table 10 on page 23 to determine if the</p>
+<p class="a">updates need to be performed from the server or console workstation. To<br>
+    customize the view bar layout, perform the following steps:<br>
+    1. Make a backup copy of the default NetView management console operational<br>
+    scheme.<br>
+    2. Open the defaultscheme.properties file in a text editor.<br>
+    3. Search for the string viewbar and locate the attribute to be changed.<br>
+    4. Change the value of the attribute.<br>
+    5. Save the changes.</p>
+<p class="a">The example in Table 15 shows the changes made to the maximum number of<br>
+    rows in the View Bar grid from 0 to 5.</p>
+<p class="a"><i>Table 15. Changing the Number of Rows in a View Bar in the defaultscheme.properties File</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>Before</th><th>After</th></tr>
+    <tr><td>viewbar_max_rows = 0</td><td>viewbar_max_rows = 5</td></tr>
+</table></center>
+<p class="a">For more information about the NetView management console operational scheme,<br>
+    see Table 9 on page 23.
+    </p>
+<h4 class="heading1">Customizing the Automatic Download of Files At Log On</h4>
+<p  class="a">When the console logs on to the server, the time stamp of the files (as stored on<br>
+    the console) and the time stamp of the files on the server are compared. If the<br>
+    console consistently logs on to the same server, these time stamps are the same and<br>
+    the files are not downloaded. See Appendix G, “Automatic File Download at<br>
+    Console Log On,” on page 175 for more information. If the console logs on to<br>
+    servers on different platforms, however, then these time stamps are slightly<br>
+    different. Use the defaultscheme.properties file to set the tolerance level of the time<br>
+    difference between time stamps. The tolerance level is a value, in minutes, between<br>
+    the times on the time stamps. If it is set to 0 (zero), for example, then the files are<br>
+    automatically downloaded from the server unless the server and console time<br>
+    stamps match exactly. Table 16 shows the attribute and the range of valid values<br>
+    for this attribute.
+    </p>
+    <p class="a"><i>Table 16. Changing the Tolerance for Time Stamp Differences in the<br>
+        defaultscheme.properties File
+        </i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>defaultscheme.properties attribute</th><th>Default<br>
+            Value</th><th>Minimum<br>
+                Value</th><th>Maximum<br>
+                    Value</th></tr>
+        <tr><td>file_download_timestamp_tolerance = int</td><td>720 (12<br>
+            hours)</td><td>0</td><td>43,200 (30<br>
+                days)</td></tr>
+
+    </table></center>
+    <p class="a">The example in Table 17 shows two scenarios in which the time stamp tolerance<br>
+        can be used and the associated values.
+        </p>
+    <p class="a"><i>Table 17. Time Stamp Tolerance Settings in the defaultscheme.properties File</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Scenario</th><th>Value to Use</th></tr>
+        <tr><td>The console is logging on to the same<br>
+            server and you want to automatically<br>
+            download any files that have changed<br>
+            each time you log on.</td><td>Set the value to 0 (zero) in the following way:<br>
+                file_download_timestamp_tolerance = 0</td></tr>
+    </table></center>
+    <p class="a"><i>Table 17. Time Stamp Tolerance Settings in the defaultscheme.properties File (continued)</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Scenario</th><th>Value to Use</th></tr>
+        <tr><td>You are logging on to multiple servers on<br>
+            various platforms and you do not want<br>
+            the files to download each time you log<br>
+            on</td><td>Perform one of the following actions:<br>
+                v Leave the default value of 12 hours:<br>
+                &nbsp;file_download_timestamp_tolerance = 720<br>
+                v Set the value higher, 3 days in this example:<br>
+                &nbsp;file_download_timestamp_tolerance = 4320<br>
+                v Set the value lower, 6 hours in this example:<br>
+                &nbsp;file_download_timestamp_tolerance = 360</td></tr>
+
+    </table></center>
+    <h4 class="heading1">Overriding the Default Date and Time Format</h4>
+    <p class="a">riding the Default Date and Time Format<br>
+        By default, the Java™ run time obtains display formats for the date and time from<br>
+        the operating system. On Windows systems, for example, the date and time<br>
+        display formats are defined by selecting<b class="i"> Control Panel,</b> then <b class="i">Regional Settings</b>.<br>
+        Unfortunately, certain changes, such as the time format, that are made to these<br>
+        values are not propagated to Java 2 Runtime Environment, Standard Edition<br>
+        (J2RE). If you change the Time format in <b class="i">Regional Settings</b> in Windows, to display<br>
+        in 24-hour format, this change is not propagated to the J2RE. The topology console,<br>
+        therefore, seems to be out of sync with the rest of the local applications.</p>
+    <p class="a">You can force the console to override the use of the operating system formats and<br>
+        display the dates and times you want. Table 18 shows the attributes (in the<br>
+        defaultschemetext.properties file) used to make this change.</p>
+    <p class="a"><i>Table 18. Changing the Date and Time Format in the defaultschemetext.properties File</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Attributes</th><th>Description</th></tr>
+        <tr><td>override.date = <format></td><td>Format used for formatting a date</td></tr>
+            <tr><td>override.time = <format></td><td>Format used for formatting a time</td></tr>
+                <tr><td>override.datetime = <format></td><td>Format used for formatting a composite date and<br>
+                    time</td></tr>
+
+    </table></center>
+    <p class="a">The example in Table 19 shows how a time stamp of 6:45:07 p.m. on March 30,<br>
+        2001 displays for various format specifications.</p>
+    <p class="a"><i>Table 19. Example of Time Stamp Format Specifications.</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Format Specification</th><th>Resulting Display Text</th></tr>
+        <tr><td>yyyy.MM.dd</td><td>2001.03.30</td></tr>
+        <tr><td>yyyy.MMM.dd</td><td>2001.Mar.30</td></tr>
+        <tr><td>yyyy.MMMM.dd</td><td>2001.March.30</td></tr>
+        <tr><td>hh:mm:ss a</td><td>06:45:07 PM</td></tr>
+        <tr><td>hh:mm:ssa z</td><td>06:45:07PM EST</td></tr>
+        <tr><td>HH:mm:ss z</td><td>18:45:07 EST</td></tr>
+
+
+    </table></center>
+    <p class="a">To customize the date and time format, update the default operational scheme<br>
+        from the console or the server workstation, depending on the mode in which you<br>
+        are running. See Table 10 on page 23 to determine if the updates need to be<br>
+        performed from the server or console workstation. To customize the date/time<br>
+        format, perform the following steps.</p>
+    <p class="a">1. Make a backup copy of the default NetView management console operational<br>
+        scheme.<br>
+        2. Open the defaultschemetext.properties file in a text editor.<br>
+        3. Search for the string override.date.<br>
+        4. Uncomment the override item by removing the leading * from the beginning of<br>
+        the line.<br>
+        5. Change the value on the <value> line to the format specification you want.<br>
+        The <value> field defines the format of the displayed item. It can contain both<br>
+        literal and substitution symbols.<br>
+        6. Save the changes.<br>
+        To verify the changes, perform the following steps:<br>
+        1. Start an NetView management console topology console.<br>
+        2. Open a view.<br>
+        3. Verify the override.datetime attribute change by checking the view<br>
+        information area in the status bar.<br>
+        4. Verify the override.date and override.time attribute changes by placing the<br>
+        view in details mode and checking the Time/Date column.</p>
+        <p class="a">The example in Table 20 shows the changes made to override all of the date and<br>
+            time display formats. These changes were made in the defaultschemetext.properties<br>
+            file.</p>
+        <p class="a"><i>Table 20. Overriding the Date and Time Display Formats in the defaultschemetext.properties
+            File</i></p>
+        <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+            <tr><th>Before</th><th>After</th></tr>
+            <tr><td>***************************<br>
+                * Date/Time Overrides Formats<br>
+                ***************************<br>
+                * override.date =yyyy.MMM.dd<br>
+                * override.time =HH:mm:ss z<br>
+                * override.datetime=yyyy.MMM.dd @<br>
+                HH:mm:ss z
+                </td><td>***************************<br>
+                    * Date/Time Overrides Formats<br>
+                    ***************************<br>
+                    override.date =yyyy.MMM.dd<br>
+                    override.time =HH:mm:ss z<br>
+                    override.datetime=yyyy.MMM.dd @<br>
+                    HH:mm:ss z</td></tr>
+        </table></center>
+<p class="a">For more information about the NetView management console operational scheme,<br>
+    see Table 9 on page 23.
+    </p>
+    <h5 class="heading2">Time Format Syntax</h5>
+    <p class="a">Table 21 is an excerpt from the javadoc of the java.text.SimpleDateFormat class. It
+        provides details about all of the possible formatting capabilities. To specify the
+        time format, use a time pattern string. In this pattern, all ASCII letters are reserved
+        as pattern letters, which are defined in Table 21.</p>
+    <p class="a"><i>Table 21. Time Format Syntax</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+        <tr><th>Symbol</th><th>Meaning</th><th>Presentation</th><th>Example</th></tr>
+        <tr><td>G</td><td>era designator</td><td>(Text)</td><td>AD</td></tr>
+        <tr><td>y</td><td>year</td><td>(Number) </td><td>2001</td></tr>
+        <tr><td>M</td><td>month in year</td><td>(Text & Number) </td><td>April & 01</td></tr>
+        <tr><td>d</td><td>day in month</td><td>(Number) </td><td>10</td></tr>
+
+    </table></center>
+<p class="a"><i>Table 21. Time Format Syntax (continued)</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>Symbol</th><th>Meaning</th><th>Presentation</th><th>Example</th></tr>
+    <tr><td>h</td><td>hour in a.m./p.m. (1-12)</td><td>(Number)</td><td>12</td></tr>
+    <tr><td>H</td><td>hour in day (0-23)</td><td>(Number)</td><td>0</td></tr>
+    <tr><td>m</td><td>minute in hour</td><td>(Number)</td><td>30</td></tr>
+    <tr><td>s</td><td>second in minute</td><td>(Number)</td><td>55</td></tr>
+    <tr><td>S</td><td>millisecond</td><td>(Number)</td><td>978</td></tr>
+    <tr><td>E</td><td>day in week</td><td>(Text)</td><td>Tuesday</td></tr>
+
+    <tr><td>D</td><td>day in year</td><td>(Number)</td><td>189</td></tr>
+    <tr><td>F</td><td>day of week in month</td><td>(Number)</td><td>2 (2nd Wed in July)</td></tr>
+    <tr><td>w</td><td>week in year</td><td>(Number)</td><td>27</td></tr>
+    <tr><td>W</td><td>week in month</td><td>(Number)</td><td>2</td></tr>
+    <tr><td>a</td><td>a.m./p.m. marker</td><td>(Text)</td><td>PM</td></tr>
+
+    <tr><td>k</td><td>hour in day (1-24)</td><td>(Number)</td><td>24</td></tr>
+    <tr><td>K</td><td>hour in a.m./p.m. (0-11)</td><td>(Number)</td><td>0</td></tr>
+    <tr><td>z</td><td>time zone</td><td>(Text)</td><td>Pacific Standard Time</td></tr>
+    <tr><td>'</td><td>escape for text</td><td>(Delimiter)</td><td></td></tr>
+    <tr><td>' '</td><td>single quotation mark</td><td>(Literal) </td><td></td></tr>
+
+</table></center>
+<p class="a">The count of pattern letters determines the format in the following way:<br>
+    v Text: If the presentation is in text and 4 or more pattern letters exist, then use the<br>
+    full form. If fewer than 4 pattern letters exist, then use the short or abbreviated<br>
+    form, if one exists.<br>
+    v Numeric: If the presentation is numeric, then the field contains the minimum<br>
+    number of digits. Shorter numbers are zero-padded to this amount.</p>
+<p class="p"><b class="i">Note:</b> The year is handled differently. If the count of contents of the y field is 2,<br>
+    then the year is truncated to 2 digits.</p>
+<p class="a">v Text and numeric: If the presentation contains 3 or more bytes, use text,<br>
+    otherwise use numerics</p>
+<p class="a">Any characters in the pattern that are not in the ranges of 'a' - 'z' and 'A' - 'Z'] are<br>
+    treated as quoted text. For example, the following characters are displayed in the<br>
+    resulting time text (even if they are not within single quotation marks):</p>
+<p class="a">v ':'<br>
+    v '.'<br>
+    v ' '<br>
+    v '#'<br>
+    v '@'</p>
+<p class="a">Patterns containing a pattern letter that is not valid result in a thrown exception<br>
+    during formatting or parsing.</p>
+<p class="a">The examples in Table 22 use a US Location.</p>
+<p class="a"><i>Table 22. Examples of Time and Date Formatting</i></p>
+<center><table class="tab"  border="6" cellpadding="6" cellspacing="6">
+    <tr><th>Format Pattern</th><th>Result</th></tr>
+    <tr><td>"yyyy.MM.dd G ’at’ hh:mm:ss z" </td><td>2001.04.01 AD at 15:08:56 PDT</td></tr>
+    <tr><td>"EEE, MMM d, ’’yy" </td><td>Sun, April 01, '01</td></tr>
+</table></center>
+<p class="a"><i>&nbsp;&nbsp;Table 22. Examples of Time and Date Formatting. (continued)</i></p>
+    <center><table class="tab"  border="6" cellpadding="6" cellspacing="6"  >
+        <th>Format Pattern</th><th>Result</th>
+        <tr><td>"h:mm a"</td><td>12:08 PM</td></tr>
+        <tr><td>"hh ’o’’clock’ a, zzzz" </td><td>12 o'clock PM, Pacific Daylight Time</td></tr>
+        <tr><td>"K:mm a, z"</td><td>0:00 PM, PST</td></tr>
+        <tr><td>"yyyyy.MMMMM.dd GGG hh:mm aaa"</td><td>2001.April.01 AD 12:08 PM</td></tr>
+    </table></center>
+    <p class="a"><b>Customizing Data1, Data2, and Data3 Field Labels for RODM<br>
+        Resources</b></p>
+    <p class="a">You can customize the labels for the Data1, Data2, and Data3 fields for RODM<br>
+        resources, both real and aggregate. The labels are defined in the<br>
+        defaultschemetext.properties file and the defaults are shown in Table 23.</p>
+    <p class="a"><i>Table 23. Default Text for Optional Data Fields for RODM Resources</i></p>
+    <center><table class="tab" border="6" cellpadding="6" cellspacing="6">
+        <th>defaultschemetext.properties Attribute</th><th>Default Text</th>
+        <tr><td>Data1.RODM.Resource</td><td>Other Data</td></tr>
+        <tr><td>Data2.RODM.Resource</td><td>User Data</td></tr>
+        <tr><td>Data3.RODM.Resource</td><td>IP Address</td></tr>
+    </table></center>
+    <p class="a">The updates are made from the topology server or the topology console,<br>
+
+        depending on the mode in which you are running; to determine where to make<br>
+    
+        the updates, see Table 10 on page 23. To customize the labels, follow these steps:<br>
+    
+        1.&nbsp;&nbsp; Make a backup copy of the default NetView management console operational<br>
+    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheme.<br>
+    
+        2.&nbsp;&nbsp; Open the defaultschemetext.properties file in a text editor.<br>
+    
+        3.&nbsp;&nbsp; For each attribute you want to change (Data1.RODM.Resource,<br>
+    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data2.RODM.Resource, or Data3.RODM.Resource), find the attribute and<br>
+    
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change the attribute value to the text you want to use.<br>
+    
+        4.&nbsp;&nbsp; Save your changes.</p>
+        <p class="a">&nbsp;&nbsp;Verify your changes in the following way:<br>
+            1.&nbsp;&nbsp; Start the topology console.<br>
+            2.&nbsp;&nbsp; Open a view.<br>
+            3.&nbsp;&nbsp; Right-click a RODM resource, and click <b class="i">Resource Properties.</b><br>
+            4.&nbsp;&nbsp; Verify that the label text you defined is shown.</p>
+       <h4 class="heading1">Customizing Line Thickness</h4>
+          <p class="a">You can adjust the thickness of lines in a topology view. Table 24 shows the values<br>
+            for line thickness; these values are set in the defaultscheme.properties file.</p>
+        <p class="a"><i>Table 24. Changing Line Thickness (in Pixels)</i></p>
+         <center><table class="tab" border="6" cellpadding="6" cellspacing="6">
+            <th>defaultscheme.properties Attribute</th><th>Default Value<br>(in Pixels)</th><th>Minimum<br> Value (in<br> Pixels)</th><th>Maximum Value<br>(in Pixels)</th>
+            <tr><td>line_thickness</td><td>2</td><td>1</td><td>4</td></tr>
+         </table></center>
+         <p class="a">To customize the line thickness, the NetView management console operational<br>
+            scheme must be updated, as shown in Table 24 on page 33. This can be done from<br>
+            the console or the server workstation, depending on the mode in which you are<br>
+            running. See Table 10 on page 23 to determine if the updates need to be performed<br>
+            from the server or console workstation. To customize line thickness, perform the<br>
+            following steps.</p>
+        <p class="a">1.&nbsp;&nbsp; Make a backup copy of the default NetView management console operational<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scheme.<br>
+            2.&nbsp;&nbsp; Open the defaultscheme.properties file in a text editor.<br>
+            3.&nbsp;&nbsp; Search for the string line_thickness.<br>
+            4.&nbsp;&nbsp; Change the value on this line to the line thickness (in pixels). The valid range is<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from 1 to 4.<br>
+            5.&nbsp;&nbsp; Save the changes.</p>
+           
+<p class="a">To verify this change, perform the following steps:<br>
+        1.&nbsp;&nbsp; Start an NetView management console topology console.<br>
+        2.&nbsp;&nbsp; Open a view.<br>
+        3.&nbsp;&nbsp; Verify the line thickness while in the topology view.</p>
+    <p class="a">The example in Table 25 shows the changes made to the line thickness from two<br>
+        pixels to one pixel.</p>
+    <p class="a"><i>&nbsp;&nbsp;Table 25. Changing the Line Thickness in the defaultscheme.properties File</i></p>
+
+<center><table class="tab" border="6" cellpadding="6" cellspacing="6" >
+        <th>Before </th><th>After</th>
+        <tr><td>*************************<br><br>
+            * Thickness of connection lines in pixels<br><br>
+            *************************<br><br>
+            line_thickness = 2</td>
+            <td>*************************<br><br>
+                * Thickness of connection lines in pixels<br><br>
+                *************************<br><br>
+                line_thickness = 1</td></tr>
+    </table></center>
+<p class="a">For more information about the NetView management console operational scheme,<br>
+    see Table 9 on page 23.</p>
+    
+    
+
+
+
+
+    
+
+
+
+
+    </body>
+    </html>

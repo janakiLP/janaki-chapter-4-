@@ -1,0 +1,40 @@
+.hr{
+    background:black;
+    height:4px;
+    position: relative;
+    border: none;
+}
+body{
+    padding-left: 30%;
+    padding-right: 20%;
+}
+.hr1{
+    background:black;
+    height:1px;
+    position: relative;
+    border: none;
+}
+.heading{
+    font-weight: 700;
+}
+.heading1{
+    font-weight: 700;
+    padding-left: 5%;
+}
+.heading2{
+    font-weight: 700;
+    padding-left: 10%;
+}
+.a{
+   padding-left: 10%;
+   text-align: justify;
+}
+.tab{
+    color: black;
+    font-size: 14px;
+   
+    border: 10px black;
+   width:70%;
+   
+    
+}
